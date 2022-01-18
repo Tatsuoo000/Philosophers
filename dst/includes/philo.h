@@ -6,7 +6,7 @@
 /*   By: tkano <tkano@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 07:32:26 by tkano             #+#    #+#             */
-/*   Updated: 2022/01/11 17:32:21 by tkano            ###   ########.fr       */
+/*   Updated: 2022/01/14 22:27:35 by tkano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,17 @@
 # include <pthread.h>
 # include <sys/time.h>
 # include <limits.h>
+# include <errno.h>
+# include <stdbool.h>
+
+typedef enum e_arg_index
+{
+	NUM_OF_PHILOS,
+	TIME_TO_DIE,
+	TIME_TO_EAT,
+	TIME_TO_SLEEP,
+	LIMIT_TIMES_TO_DIE,
+}	t_arg_index;
 
 typedef struct s_info
 {
@@ -43,5 +54,8 @@ typedef struct s_philo
 	long			last_meal_time;
 	long			times_of_finished_meal;
 }	t_philo;
+
+int		exit_free(t_info *info, t_philo *philos, char *err);
+bool	arg_parse(t_info * info, int argc, char **argv);
 
 #endif
