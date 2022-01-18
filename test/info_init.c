@@ -22,6 +22,7 @@ bool	arg_parse(t_info *info, int argc, char **argv)
 		info->params[i - 1] = atoi(argv[i]);
 		i++;
 	}
+	return (true);
 }
 
 bool    info_init(t_info *info)
@@ -39,4 +40,5 @@ bool    info_init(t_info *info)
 	info->is_dead = false;
 	info->fullfill_num = -1;
 	info->is_dead = false;
+	return (true);
 }

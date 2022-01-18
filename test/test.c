@@ -14,8 +14,11 @@
 
 void	put_status(t_philo *philo, char *script)
 {
+	struct timeval	now;
+
+	gettimeofday(&now, NULL);
 	pthread_mutex_lock(philo->print);
-	printf("philo %d %s\n", philo->index + 1, script);
+	printf("%d philo %d %s\n",now.tv_usec / 1000, philo->index + 1, script);
 	//usleep(5000);
 	pthread_mutex_unlock(philo->print);
 }
