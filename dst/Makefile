@@ -1,7 +1,8 @@
 SRCDIR	= ./srcs/
 SRCNAME	= 	main.c\
 			exit.c\
-			arg_parse.c
+			arg_parse.c\
+			init.c
 SRCS	= $(addprefix $(SRCDIR), $(SRCNAME))
 OBJS	= $(SRCS:.c=.o)
 INCLUDE	= -I./includes
