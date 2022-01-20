@@ -6,7 +6,7 @@
 /*   By: tkano <tkano@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/26 07:32:26 by tkano             #+#    #+#             */
-/*   Updated: 2022/01/14 22:27:35 by tkano            ###   ########.fr       */
+/*   Updated: 2022/01/20 21:29:44 by tkano            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,7 @@ typedef struct s_philo
 
 int		exit_free(t_info *info, t_philo *philos, char *err);
 bool	arg_parse(t_info * info, int argc, char **argv);
+bool	info_init(t_info *info);
+t_philo	*philos_init(t_info *info);
 
 #endif
