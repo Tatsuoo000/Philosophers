@@ -16,6 +16,7 @@ void	grab_fork(t_philo *philo)
 {
 	//usleep(40);
 	pthread_mutex_lock(philo->left);
+	put_status(philo, "has taken a fork");
 	pthread_mutex_lock(philo->right);
 	put_status(philo, "has taken a fork");
 	usleep(15000);
@@ -27,9 +28,16 @@ void	grab_fork(t_philo *philo)
 
 bool    philo_init(t_philo *philo, t_info info)
 {
+	struct timeval start_time;
+
+	gettimeofday(&start_time, NULL);
+	
 	philo->left = &(info.forks[philo->index]);
 	//printf("philo%d, left hand: %d\n", philo->index + 1, (philo->index + info.params[0] - 1) % (info.params[0]));
 	//printf("philo%d, right hand: %d\n", philo->index + 1, (philo->index + info.params[0] - 1) % (info.params[0]));
 	philo->right = &(info.forks[(philo->index + info.params[0] - 1) % (info.params[0])]);
 	philo->print = &(info.print);
+	philo->last_meal_time = start_time.tv_usec / 1000.0;
+	printf("philo%d, borned time: %ld \n", philo->index + 1, philo->last_meal_time);
+	return (false);
 }
